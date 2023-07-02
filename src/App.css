@@ -10,7 +10,7 @@
     height: 60px;
 }
 
-#history,
+.calculation,
 #display {
     width: 100%;
     text-align: right;
