@@ -8,12 +8,12 @@ function App() {
   const btnArr= [
     {
       id: "divide",
-      value: " / ",
+      value: "/",
       type: "operator"
     },
     {
       id: "multiply",
-      value: " * ",
+      value: "*",
       type: "operator"
     },
     {
@@ -33,7 +33,7 @@ function App() {
     },
     {
       id: "subtract",
-      value: " - ",
+      value: "-",
       type: "operator"
     },
     {
@@ -53,7 +53,7 @@ function App() {
     },
     {
       id: "add",
-      value: " + ",
+      value: "+",
       type: "operator"
     },
     {
@@ -73,7 +73,7 @@ function App() {
     },
     {
       id: "equals",
-      value: " = ",
+      value: "=",
       type: ""
     },
     {
@@ -135,17 +135,31 @@ function App() {
       setOutput(btnClicked.value)
       setCalculation(preCalc => preCalc + btnClicked.value)
 
-      // to fix!!!
-      if(
-        calculation[calculation.length - 2] === "+" || 
-        calculation[calculation.length - 2] === "-")  {
-          let len = calculation.length - 2
+      if (btnClicked.value !== "-") {
+        console.log(calculation[calculation.length - 1]);
+        if (
+          calculation[calculation.length - 1] === "+" ||
+          calculation[calculation.length - 1] === "*" ||
+          calculation[calculation.length - 1] === "/"
+        ) {
+          let len = calculation.length - 1;
           let newCalc = calculation.substring(0, len) + calculation.substring(len + 1,)
-  
+
           // console.log(newCalc );
           setCalculation(newCalc + btnClicked.value)
+        } else if (calculation[calculation.length - 1] === "-") {
+          let operatorsList = ['+', "*", '/'];
+          if (operatorsList.indexOf(calculation[calculation.length - 2]) != -1) {
+
+            let len = calculation.length - 2;
+            let newCalc = calculation.substring(0, len) + calculation.substring(len + 2,);
+            setCalculation(newCalc + btnClicked.value)
+          }
         }
 
+      }
+
+      
 
 
     }

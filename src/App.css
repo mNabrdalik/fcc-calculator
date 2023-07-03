@@ -6,23 +6,49 @@
 }
 
 .App button {
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
+    background-color: #262E33;
+    color: #F4F4F4;
+    border: none;
+    margin: 2px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
 }
+
+.App button:hover {
+    background-color: #2EA7FF;
+    color: #F4F4F4;
+}
+
+
 
 .calculation,
 #display {
-    width: 100%;
+    width: calc(100% - 2px);
     text-align: right;
+    padding: 1em;
+    margin-bottom: .5em;    
+    background-color: #39454D;
+    border-radius: 4px;
+    color: #2EA7FF;
+    font-weight: 600;
+}
+
+.calculation {
+    color: #F4F4F4;
+    height: 1rem;
 }
 
 #clear,
 #zero {
-    width: 50%;
+    width: calc(56px * 2 + 4px);
 }
 
 #equals {
-    height: 120px;
+    height: calc(56px * 2 + 4px);
 }
 
 
